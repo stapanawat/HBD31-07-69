@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday My Love 💖 | เซอร์ไพรส์วันเกิดสุดพิเศษ</title>
+  <meta name="description" content="เว็บเซอร์ไพรส์วันเกิดสุดน่ารักสำหรับคนพิเศษของคุณ">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Particles Background (Hearts & Sparkles) -->
+  <div id="particles-container"></div>
+
+  <!-- Floating Music Player Bar -->
+  <div class="music-player-bar">
+    <div class="music-disc" id="music-disc">🎵</div>
+    <button class="music-btn" id="music-toggle-btn" title="เปิด/ปิด เสียงเพลง">🔊</button>
+  </div>
+
+  <!-- Confetti Canvas Overlay -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- App Main Container -->
+  <div class="app-container">
+
+    <!-- ==========================================
+         STAGE 1: PASSCODE LOCK SCREEN
+         ========================================== -->
+    <div class="stage-card active" id="stage-1">
+      <div class="badge-cute">🔒 SECRET DOOR</div>
+      <h1 class="stage-title">ตู้เซฟความทรงจำ 💖</h1>
+      <p class="stage-desc">กรุณาป้อนรหัสผ่านวันสำคัญ 4 หลัก เพื่อปลดล็อคความสุขของวันนี้</p>
+
+      <div class="passcode-display">
+        <div class="digit-box" id="digit-1"></div>
+        <div class="digit-box" id="digit-2"></div>
+        <div class="digit-box" id="digit-3"></div>
+        <div class="digit-box" id="digit-4"></div>
+      </div>
+
+      <div class="keypad-grid">
+        <button class="key-btn" data-val="1">1</button>
+        <button class="key-btn" data-val="2">2</button>
+        <button class="key-btn" data-val="3">3</button>
+        <button class="key-btn" data-val="4">4</button>
+        <button class="key-btn" data-val="5">5</button>
+        <button class="key-btn" data-val="6">6</button>
+        <button class="key-btn" data-val="7">7</button>
+        <button class="key-btn" data-val="8">8</button>
+        <button class="key-btn" data-val="9">9</button>
+        <button class="key-btn" data-val="❤️">❤️</button>
+        <button class="key-btn" data-val="0">0</button>
+        <button class="key-btn" data-val="del">⌫</button>
+      </div>
+
+      <div class="hint-box" id="hint-text">💡 คำใบ้: รหัสผ่านวันสำคัญของเราสองคน</div>
+    </div>
+
+    <!-- ==========================================
+         STAGE 2: MEMORIES & POLAROID SLIDESHOW
+         ========================================== -->
+    <div class="stage-card" id="stage-2">
+      <div class="badge-cute">📷 MEMORY GALLERY</div>
+      <h1 class="stage-title">ความทรงจำของเรา ✨</h1>
+      <p class="stage-desc">ขอบคุณทุกๆ ช่วงเวลาที่มีคุณอยู่ข้างๆ นะคะ</p>
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid-card">
+          <div class="polaroid-img-box">
+            <img id="polaroid-img" src="" alt="Memory Photo">
+          </div>
+          <div class="polaroid-caption" id="polaroid-title">วันแรกที่เราได้พบกัน ✨</div>
+          <div class="polaroid-subtext" id="polaroid-caption">ยิ้มแรกของคุณทำให้โลกของฉันสดใสขึ้นทันที</div>
+        </div>
+      </div>
+
+      <div class="slideshow-controls">
+        <button class="nav-arrow-btn" id="prev-memory-btn">❮</button>
+        <div class="dots-indicator" id="dots-container"></div>
+        <button class="nav-arrow-btn" id="next-memory-btn">❯</button>
+      </div>
+
+      <button class="btn-pink" id="to-stage3-btn">
+        ไปอธิษฐานเป่าเค้กกัน 🎂 ➜
+      </button>
+    </div>
+
+    <!-- ==========================================
+         STAGE 3: INTERACTIVE BIRTHDAY CAKE
+         ========================================== -->
+    <div class="stage-card" id="stage-3">
+      <div class="badge-cute">🎂 MAKE A WISH</div>
+      <h1 class="stage-title">เป่าเค้กวันเกิดกันนะ! 🎉</h1>
+      <p class="stage-desc">ตั้งจิตอธิษฐานสิ่งที่ดีที่สุด แล้วกดปุ่มเป่าเทียนได้เลยนะคะ</p>
+
+      <div class="cake-stage-box">
+        <!-- SVG Cute Cake with Candles -->
+        <svg class="cake-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Plate -->
+          <ellipse cx="100" cy="180" rx="90" ry="12" fill="#e0e0e0" />
+          <ellipse cx="100" cy="177" rx="80" ry="10" fill="#ffffff" />
+          
+          <!-- Layer 1 (Bottom Cake) -->
+          <rect x="30" y="125" width="140" height="45" rx="8" fill="#ffb7b2" />
+          <path d="M 30 125 Q 40 135, 50 125 Q 60 135, 70 125 Q 80 135, 90 125 Q 100 135, 110 125 Q 120 135, 130 125 Q 140 135, 150 125 Q 160 135, 170 125 L 170 140 Q 160 148, 150 140 Q 140 148, 130 140 Q 120 148, 110 140 Q 100 148, 90 140 Q 80 148, 70 140 Q 60 148, 50 140 Q 40 148, 30 140 Z" fill="#ffffff" />
+          
+          <!-- Layer 2 (Top Cake) -->
+          <rect x="45" y="85" width="110" height="40" rx="6" fill="#ff758c" />
+          <path d="M 45 85 Q 55 93, 65 85 Q 75 93, 85 85 Q 95 93, 105 85 Q 115 93, 125 85 Q 135 93, 145 85 Q 155 93, 155 85 L 155 98 Q 145 104, 135 98 Q 125 104, 115 98 Q 105 104, 95 98 Q 85 104, 75 98 Q 65 104, 55 98 Q 45 104, 45 98 Z" fill="#ffffff" />
+
+          <!-- Cherries/Strawberries -->
+          <circle cx="60" cy="83" r="6" fill="#ff2a5f" />
+          <circle cx="100" cy="83" r="6" fill="#ff2a5f" />
+          <circle cx="140" cy="83" r="6" fill="#ff2a5f" />
+
+          <!-- Candles -->
+          <!-- Candle 1 -->
+          <rect x="70" y="55" width="6" height="28" fill="#ffd166" rx="2" />
+          <!-- Candle 2 (Middle) -->
+          <rect x="97" y="50" width="6" height="33" fill="#06d6a0" rx="2" />
+          <!-- Candle 3 -->
+          <rect x="124" y="55" width="6" height="28" fill="#118ab2" rx="2" />
+
+          <!-- Flames -->
+          <!-- Flame 1 -->
+          <path class="flame" d="M 73 43 C 70 49, 76 53, 73 55 C 70 53, 76 49, 73 43 Z" fill="#ff9f1c" />
+          <!-- Flame 2 -->
+          <path class="flame" d="M 100 37 C 97 44, 103 48, 100 50 C 97 48, 103 44, 100 37 Z" fill="#ff9f1c" />
+          <!-- Flame 3 -->
+          <path class="flame" d="M 127 43 C 124 49, 130 53, 127 55 C 124 53, 130 49, 127 43 Z" fill="#ff9f1c" />
+
+          <!-- Smoke (Hidden initially) -->
+          <circle class="smoke" cx="73" cy="45" r="4" fill="#bbbbbb" />
+          <circle class="smoke" cx="100" cy="40" r="5" fill="#bbbbbb" />
+          <circle class="smoke" cx="127" cy="45" r="4" fill="#bbbbbb" />
+        </svg>
+      </div>
+
+      <button class="btn-pink" id="blow-candle-btn">
+        💨 กดตรงนี้เพื่อเป่าเทียน
+      </button>
+
+      <button class="btn-pink" id="to-stage4-btn" style="display: none;">
+        เปิดอ่านจดหมายความรู้สึก 💌 ➜
+      </button>
+    </div>
+
+    <!-- ==========================================
+         STAGE 4: LOVE LETTER & COUPONS
+         ========================================== -->
+    <div class="stage-card" id="stage-4">
+      <div class="badge-cute">💌 LOVE LETTER & COUPONS</div>
+      <h1 class="stage-title">ถึงคนสำคัญของฉัน 💖</h1>
+      
+      <!-- Love Letter Container -->
+      <div class="letter-envelope">
+        <div class="letter-salutation" id="letter-salutation">ถึง สุขใจสุดที่รัก,</div>
+        <div id="letter-body">
+          <!-- Paragraphs injected by JS -->
+        </div>
+        <div class="letter-closing" id="letter-sender">ด้วยรักและหวังดีเสมอ,<br>คนรักของคุณ 💖</div>
+      </div>
+
+      <!-- Coupons Container -->
+      <div class="coupons-heading">🎁 คูปองตามใจแฟน (กดคลิกเพื่อใช้คูปองได้เลย!)</div>
+      <div class="coupons-grid" id="coupons-list">
+        <!-- Coupon cards injected by JS -->
+      </div>
+
+      <button class="btn-pink" id="restart-btn">
+        🔄 ดูเรื่องราวความรักอีกครั้ง
+      </button>
+
+      <div class="love-footer">
+        Made with ❤️ for the most special person in the world
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Message Element -->
+  <div class="toast-msg" id="toast-msg"></div>
+
+  <!-- Configuration and Logic Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

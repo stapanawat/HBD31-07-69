@@ -1,0 +1,659 @@
+/* ==========================================
+   💖 STYLING & DESIGN SYSTEM - HBD SURPRISE WEB APP
+   Theme: Cute Kawaii Pastel Pink & Glassmorphism
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mali:wght@400;600;700&family=Prompt:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-pink: #ff758c;
+  --secondary-pink: #ff7eb3;
+  --accent-rose: #ff4b72;
+  --bg-gradient: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 50%, #ffc3a0 100%);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 15px 35px rgba(255, 117, 140, 0.2);
+  --text-dark: #4a3b40;
+  --text-soft: #7a6369;
+  --white: #ffffff;
+  --gold-accent: #ffd700;
+  
+  --font-heading: 'Mali', 'Fredoka', cursive, sans-serif;
+  --font-body: 'Prompt', sans-serif;
+  --font-handwriting: 'Mali', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Animated Particles (Hearts & Stars) */
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-particle {
+  position: absolute;
+  bottom: -50px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* App Container */
+.app-container {
+  width: 92%;
+  max-width: 520px;
+  min-height: 85vh;
+  margin: 20px auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glassmorphism Stage Card Base */
+.stage-card {
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--glass-border);
+  border-radius: 32px;
+  padding: 32px 24px;
+  box-shadow: var(--glass-shadow);
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: none;
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+
+.stage-card.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Headings & Badges */
+.badge-cute {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 117, 140, 0.15);
+  color: var(--accent-rose);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h1.stage-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--accent-rose);
+  margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+p.stage-desc {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Common Cute Button */
+.btn-pink {
+  background: linear-gradient(135deg, var(--primary-pink), var(--accent-rose));
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 75, 114, 0.35);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+}
+
+.btn-pink:hover {
+  transform: translateY(-3deg) scale(1.03);
+  box-shadow: 0 12px 25px rgba(255, 75, 114, 0.45);
+}
+
+.btn-pink:active {
+  transform: translateY(1deg) scale(0.98);
+}
+
+/* ==========================================
+   STAGE 1: PASSCODE LOCK SCREEN
+   ========================================== */
+.passcode-display {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.digit-box {
+  width: 50px;
+  height: 58px;
+  background: var(--white);
+  border: 2px solid #ffccd5;
+  border-radius: 16px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.digit-box.filled {
+  border-color: var(--primary-pink);
+  background: #fff5f7;
+  transform: scale(1.05);
+}
+
+.digit-box.error {
+  animation: shake 0.4s ease;
+  border-color: #ff3366;
+  background: #ffe6eb;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+
+.key-btn {
+  background: var(--white);
+  border: 1.5px solid #ffccd5;
+  border-radius: 20px;
+  height: 56px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 183, 178, 0.2);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-btn:hover {
+  background: #fff0f3;
+  color: var(--accent-rose);
+  transform: translateY(-2deg);
+}
+
+.key-btn:active {
+  transform: scale(0.92);
+  background: var(--primary-pink);
+  color: var(--white);
+}
+
+.hint-box {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px 16px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 10px;
+}
+
+/* ==========================================
+   STAGE 2: MEMORIES & POLAROID SLIDESHOW
+   ========================================== */
+.music-player-bar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--white);
+  border-radius: 30px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.music-disc {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #ff758c, #ffc3a0, #ff758c);
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.music-disc.playing {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.music-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Polaroid Card Container */
+.polaroid-wrapper {
+  width: 100%;
+  perspective: 1000px;
+  margin: 16px 0 24px;
+}
+
+.polaroid-card {
+  background: var(--white);
+  padding: 14px 14px 24px 14px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: rotate(-2deg);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid-img-box {
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff5f7;
+  position: relative;
+}
+
+.polaroid-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-caption {
+  font-family: var(--font-handwriting);
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.polaroid-subtext {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.slideshow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.nav-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid #ffccd5;
+  color: var(--accent-rose);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 117, 140, 0.2);
+  transition: all 0.2s ease;
+}
+
+.nav-arrow-btn:hover {
+  background: var(--primary-pink);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.dots-indicator {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffd0d8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--accent-rose);
+}
+
+/* ==========================================
+   STAGE 3: INTERACTIVE BIRTHDAY CAKE
+   ========================================= */
+.cake-stage-box {
+  position: relative;
+  width: 220px;
+  height: 240px;
+  margin: 10px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+/* SVG / CSS Cartoon Cake */
+.cake-svg {
+  width: 190px;
+  filter: drop-shadow(0 10px 15px rgba(255, 117, 140, 0.3));
+}
+
+.flame {
+  transform-origin: center bottom;
+  animation: flicker 0.6s ease-in-out infinite alternate;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.flame.extinguished {
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  50% { transform: scale(1.15) rotate(2deg); }
+  100% { transform: scale(0.95) rotate(-1deg); }
+}
+
+.smoke {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.smoke.active {
+  animation: riseSmoke 2s ease-out forwards;
+}
+
+@keyframes riseSmoke {
+  0% { opacity: 0.8; transform: translateY(0) scale(0.5); }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.5); }
+}
+
+/* Confetti Canvas Overlay */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ==========================================
+   STAGE 4: LOVE LETTER & COUPONS
+   ========================================== */
+.letter-envelope {
+  width: 100%;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+  text-align: left;
+  border-left: 5px solid var(--accent-rose);
+  position: relative;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.letter-salutation {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--accent-rose);
+  margin-bottom: 12px;
+}
+
+.letter-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+}
+
+.letter-closing {
+  text-align: right;
+  margin-top: 16px;
+  font-family: var(--font-handwriting);
+  font-size: 1.05rem;
+  color: var(--accent-rose);
+  white-space: pre-line;
+}
+
+/* Coupon Cards Carousel / List */
+.coupons-heading {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--accent-rose);
+  margin-bottom: 14px;
+}
+
+.coupons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.coupon-card {
+  background: var(--white);
+  border: 2px dashed #ffb7b2;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.coupon-card:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-rose);
+}
+
+.coupon-icon {
+  font-size: 2rem;
+  background: #fff0f3;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.coupon-info h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.coupon-info p {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.coupon-stamp {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-10deg);
+  background: var(--accent-rose);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.coupon-card.redeemed .coupon-stamp {
+  opacity: 1;
+}
+
+.coupon-card.redeemed {
+  opacity: 0.75;
+  background: #f9f9f9;
+}
+
+/* Toast Notification */
+.toast-msg {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(74, 59, 64, 0.9);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.toast-msg.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Footer Love Credit */
+.love-footer {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  font-family: var(--font-heading);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+  .app-container {
+    width: 95%;
+    margin: 10px auto;
+  }
+  .stage-card {
+    padding: 24px 16px;
+    border-radius: 24px;
+  }
+  h1.stage-title {
+    font-size: 1.5rem;
+  }
+  .digit-box {
+    width: 42px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  .key-btn {
+    height: 48px;
+    font-size: 1.2rem;
+  }
+  .polaroid-img-box {
+    height: 210px;
+  }
+}
